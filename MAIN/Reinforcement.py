@@ -66,7 +66,9 @@ class ContextualBandit(Agent):
     def process(self, session, save=False, restore=False):
         self.set_session(session)
         self.initialize_global()
-        if restore is True: self.restore_model()
+        if restore is True:
+            print(f"Reinforcement: restore_model")
+            self.restore_model()
 
         while self.epoch_counter.is_ended is False:
             while self.iter_counter.is_ended is False:
