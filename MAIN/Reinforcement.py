@@ -11,9 +11,9 @@ class ContextualBandit(Agent):
         self.iter_counter  = self.counters[config['AgentIterationCounter']]
 
         # Placeholder
-        self.temp = tf.placeholder(shape=[1], dtype=tf.float32)
-        self.reward_holder = tf.placeholder(shape=[1], dtype=tf.float32)
-        self.action_holder = tf.placeholder(shape=[1], dtype=tf.int32)
+        self.temp = tf.compat.v1.placeholder(shape=[1], dtype=tf.float32)
+        self.reward_holder = tf.compat.v1.placeholder(shape=[1], dtype=tf.float32)
+        self.action_holder = tf.compat.v1.placeholder(shape=[1], dtype=tf.int32)
 
         # Algorithm
         self.output    = tf.reshape(self.output_layer, [-1])

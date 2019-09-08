@@ -66,7 +66,7 @@ output_layer = {'final': {'func_name':  'fully_connected',
                                          'activation_fn': tf.nn.relu,
                                          'weights_initializer': tf.ones_initializer()}}}
 
-state_in = tf.placeholder(shape=[1], dtype=tf.int32)
+state_in = tf.compat.v1.placeholder(shape=[1], dtype=tf.int32)
 
 N = basics.Network(state_in)
 N.build_layers(one_hot)
