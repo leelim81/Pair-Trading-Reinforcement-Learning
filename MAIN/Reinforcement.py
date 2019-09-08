@@ -19,8 +19,8 @@ class ContextualBandit(Agent):
         self.output    = tf.reshape(self.output_layer, [-1])
         self.prob_dist = tf.nn.softmax(self.output / self.temp)
         self.weight    = tf.slice(self.output, self.action_holder, [1])
-        self.loss      = -(tf.log(self.weight) * self.reward_holder)
-        self.optimizer = tf.train.AdamOptimizer(learning_rate=self.config['AgentLearningRate'])
+        self.loss      = -(tf.math.log(self.weight) * self.reward_holder)
+        self.optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=self.config['AgentLearningRate'])
         self.update    = self.optimizer.minimize(self.loss)
 
         # Processor

@@ -76,7 +76,7 @@ N.add_layer_duplicates(output_layer, 1)
 RL_Train = RL.ContextualBandit(N, config_train, EG_Train)
 
 start = time.time()
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 RL_Train.process(sess, save=True, restore=False)
 end = time.time()
 print(f"Training took: {(end-start)/60}")

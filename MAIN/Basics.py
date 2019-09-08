@@ -14,7 +14,7 @@ class Agent(metaclass=abc.ABCMeta):
         self.config    = config
         self.data      = dict()
         self.feed_dict = dict()
-        self.saver     = tf.train.Saver()
+        self.saver     = tf.compat.v1.train.Saver()
         self.counters  = dict()
         self.input_layer  = None
         self.output_layer = None
@@ -33,7 +33,7 @@ class Agent(metaclass=abc.ABCMeta):
         self.session = session
 
     def initialize_global(self):
-        init = tf.global_variables_initializer()
+        init = tf.compat.v1.global_variables_initializer()
         self.session.run(init)
 
     def get_counter(self):
